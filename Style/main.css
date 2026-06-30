@@ -533,157 +533,239 @@ body.showCart .cart-section{
 
 /* Small screens */
 @media (max-width: 767px) {
+    body {
+        padding-top: 130px;
+    }
     main{
         padding: 4%;
     }
+
+    /* ── Header ── */
+    .header_top {
+        padding: 0 4%;
+        height: 78px;
+    }
     .header_top ion-icon{
         font-size: 20px;
+        margin-right: 4px;
     }
     .header_top img{
-        width: 80px;
+        width: 72px;
     }
-    .slider{
-        display: none;
+    nav ul li {
+        padding: 10px 8px;
+        margin: 2px;
     }
-    .hero_for_phone{
-        display: block;
-        width: 100%;
-        height: 350px;
-    }
-    .hero_for_phone .hero-content{
-        width: 100%;
-        height: 350px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 100px;
-        position: relative;
-    }
-    .hero_for_phone .hero-content img{
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        object-fit: cover;
-        object-position: center center;
-    }
-    .hero_for_phone .text{
-        position: absolute;
-        left: 20px;
-        top: 100px;
-    }
-    .hero_for_phone .text h2{
-        font-size: 24px;
-        font-weight: 400;
-    }
-    .hero_for_phone p{
-        width: 200px;
-        font-size: 10px;
-        font-weight: 300;
-        color: #868686;
-    }
-    .hero_for_phone .shop-btn{
-        margin-top: 20px;
-        background-color: transparent;
-        color: #000;
-        border: 1px solid #000;
-        padding: 10px;
-        width: 120px;
-    }
-    .information {
-        flex-direction: column;
+    nav ul li a {
+        font-size: 15px;
     }
 
+    /* ── Slider shown on mobile (styles in style.css) ── */
+    .hero_for_phone{
+        display: none;
+    }
+
+    /* ── Information strip ── */
+    .information {
+        flex-direction: column;
+        padding: 8px 0;
+    }
     .info {
         width: 100%;
         justify-content: flex-start;
+        padding: 14px 16px;
+        border-bottom: 1px solid #f0efed;
     }
-
+    .info:last-child {
+        border-bottom: none;
+    }
     .info .info-icon img {
-        width: 60px;
+        width: 48px;
+        margin-right: 14px;
+    }
+    .info .info-text h3 {
+        font-size: 13px;
+        margin-bottom: 2px;
+    }
+    .info .info-text p {
+        font-size: 12px;
     }
 
-    .info .info-text h3 {
-        font-size: 14px;
-    }  
-    /* for home page section top product */
+    /* ── Trending Products ── */
+    .top_products {
+        padding: 48px 0 56px;
+    }
+    .top_products .container {
+        padding: 0 4%;
+    }
+    .top_products .header h3 {
+        font-size: 28px;
+        letter-spacing: 1px;
+    }
+    .top_products .header p {
+        font-size: 13px;
+    }
+    .trending-header-actions {
+        margin: 14px 0 28px;
+    }
     .top_products .products {
         grid-template-columns: repeat(2,1fr);
+        gap: 14px;
         padding: 0;
     }
-    /* for products page */
+    .card-info {
+        padding: 12px 2px 10px;
+    }
+    .product-name {
+        font-size: 11px;
+    }
+    .product-price {
+        font-size: 12px;
+    }
+
+    /* ── Products page ── */
     .products .content{
         grid-template-columns: repeat(2,1fr);
         padding: 0;
     }
+
+    /* ── Product Details ── */
     .productDetails {
-        gap: 40px;
-    }
-    .collection-list {
+        gap: 28px;
         grid-template-columns: 1fr;
-        gap:20px;
-    }
-    .cart-section{
-        width: 80%;
-    }
-    .btn_control{
-        flex-direction: column;
-    }
-    .btn_control .viewCart{
-        margin-bottom: 12px;
-        color: #000;
-    }
-    .btn_control .checkout,
-     .btn_control .viewCart{
-        width: 100%;
-     }
-    .news.hight{
-        height: 300px;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-    .news .Subscribe-form{
-        width: 100%;
-        margin-bottom: 20px;
-    }
-    .news .Subscribe-form input{
-        width: 100%;
-    }
-    .footer .footer-top{
-        flex-wrap: wrap;
-    }
-    .footer .footer-top .footer-list{
-        flex-wrap: wrap;
-        gap: 20px;
     }
     .productDetails .details .buttons{
         flex-wrap: wrap;
     }
     .productDetails .details #btn_add{
         width: 100%;
-        margin-top: 20px;
+        margin-top: 16px;
     }
-    .productDetails {
+
+    /* ── Collection cards ── */
+    .collection-list {
         grid-template-columns: 1fr;
+        gap: 16px;
     }
+    .collection-card {
+        min-height: 320px;
+        padding: 28px 24px;
+    }
+
+    /* ── Cart sidebar ── */
+    .cart-section{
+        width: 92%;
+    }
+    .btn_control{
+        flex-direction: column;
+    }
+    .btn_control .viewCart{
+        margin-bottom: 10px;
+        color: #000;
+    }
+    .btn_control .checkout,
+    .btn_control .viewCart{
+        width: 100%;
+    }
+    .cart_products {
+        padding-right: 0;
+    }
+    .cart_page .content{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    /* ── Newsletter ── */
+    .news.hight{
+        height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 28px 5%;
+        gap: 20px;
+    }
+    .news .news-text h4 {
+        font-size: 22px;
+    }
+    .news .news-text p {
+        font-size: 13px;
+    }
+    .news .Subscribe-form{
+        width: 100%;
+    }
+    .news .Subscribe-form input{
+        width: 100%;
+        flex: 1;
+    }
+
+    /* ── Footer ── */
+    .footer {
+        padding: 6% 5%;
+    }
+    .footer .footer-top{
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+    .footer .footer-top .footer-list{
+        flex-wrap: wrap;
+        gap: 24px;
+        width: 100%;
+    }
+    .footer-list h4 {
+        font-size: 15px;
+        margin-bottom: 6px;
+    }
+    .footer-list ul li {
+        margin: 12px 0;
+        font-size: 13px;
+    }
+    .footer-top .footer-logo p {
+        font-size: 13px;
+    }
+
+    /* ── Scroll-to-top button ── */
+    #scrollBtn {
+        bottom: 20px;
+        right: 14px;
+        height: 44px;
+        width: 44px;
+    }
+
+    /* ── Toast / overlay ── */
     .toast-overlay{
         top: -1000px;
     }
     .toast-overlay.show{
         top: 300px;
     }
-    .cart_page .content{
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 50px;
-     }
-     .cart_products {
-        padding-right: 0;
-     }
-    .collection-card { 
-        min-height: 450px;
+    .cart-toast {
+        width: calc(100vw - 32px);
+        right: 16px;
+        bottom: 80px;
+        transform: translateX(110vw);
+    }
+    .cart-toast.show {
+        transform: translateX(0);
+    }
+
+    /* ── WhatsApp float ── */
+    .whatsapp-float {
+        bottom: 16px;
+        right: 14px;
+    }
+    .whatsapp-float__icon {
+        width: 50px;
+        height: 50px;
+    }
+    .whatsapp-float__icon ion-icon {
+        font-size: 26px;
+    }
+    .whatsapp-float__pulse {
+        width: 50px;
+        height: 50px;
+    }
+    .whatsapp-float__tooltip {
+        display: none;
     }
 }
 

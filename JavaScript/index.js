@@ -1,11 +1,9 @@
 var currentSlide = 1;
 window.addEventListener("load",function(){
-    // slider not run in small window
-    if (window.innerWidth > 767) {
     if (document.querySelectorAll(".slider .slide-content").length > 0) {
         theChecker();
         playSlider();
-    }
+        initSliderTouch();
     }
     getTrendingProducts();
 });
@@ -125,4 +123,32 @@ function showCart(){
 }
 function displayDetails(productId){
     window.location.href = `ProductDetails.html?productId=${productId}`;
+}
+
+function initSliderTouch() {
+    var slider = document.querySelector('.slider');
+    if (!slider) return;
+    var touchStartX = 0;
+    var touchStartY = 0;
+
+    slider.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].clientX;
+        touchStartY = e.changedTouches[0].clientY;
+    }, { passive: true });
+
+    slider.addEventListener('touchend', function(e) {
+        var dx = e.changedTouches[0].clientX - touchStartX;
+        var dy = e.changedTouches[0].clientY - touchStartY;
+        // Only register horizontal swipes (avoid triggering on scroll)
+        if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
+        var total = document.querySelectorAll('.slide-content').length;
+        if (dx < 0) {
+            // swipe left → next (loop)
+            currentSlide = currentSlide < total ? currentSlide + 1 : 1;
+        } else {
+            // swipe right → prev (loop)
+            currentSlide = currentSlide > 1 ? currentSlide - 1 : total;
+        }
+        theChecker();
+    }, { passive: true });
 }

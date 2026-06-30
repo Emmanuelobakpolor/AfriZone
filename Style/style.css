@@ -540,6 +540,70 @@
 }
 
 
+/* ==================== MOBILE SLIDER STYLES ==================== */
+@media (max-width: 767px) {
+    .slider {
+        height: 480px;
+        min-height: 380px;
+    }
+    /* Image fills full width on mobile */
+    .slider .slide-content img {
+        width: 100%;
+        height: 100%;
+        object-position: center top;
+    }
+    /* Gradient from bottom so text is readable */
+    .slider .slide-content::after {
+        width: 100%;
+        background: linear-gradient(0deg, rgba(15,15,20,0.93) 0%, rgba(15,15,20,0.4) 55%, transparent 100%);
+    }
+    /* Text anchored at bottom of slide */
+    .slide .text {
+        left: 20px;
+        right: 20px;
+        bottom: 60px;
+        top: auto;
+        transform: none;
+        width: auto;
+        max-width: 100%;
+    }
+    /* Override animation — translateY(-50%) breaks when top:auto */
+    @keyframes slideTextIn {
+        0%   { opacity: 0; transform: translateY(16px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+    .slide .text .slide-label {
+        font-size: 9px;
+        letter-spacing: 3px;
+        margin-bottom: 8px;
+    }
+    .slide .text h2 {
+        font-size: 28px;
+        font-weight: 300;
+        margin-bottom: 8px;
+    }
+    .slide .text p {
+        font-size: 12px;
+        margin-bottom: 16px;
+        color: rgba(255,255,255,0.65);
+    }
+    .shop-btn {
+        padding: 10px 22px;
+        font-size: 11px;
+    }
+    /* Smaller nav arrows on mobile */
+    .prev, .next {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+    .next { right: 12px; }
+    .prev { left: 12px; }
+    .slider-dots {
+        bottom: 16px;
+    }
+}
+
 /* ------------------------ news ----------------------- */
 .news{
     width: 100%;
