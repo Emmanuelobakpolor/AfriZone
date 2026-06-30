@@ -1,0 +1,581 @@
+/* ======================== SLIDER ======================== */
+.slider {
+    width: 100%;
+    height: calc(100vh - 150px);
+    position: relative;
+    overflow: hidden;
+}
+.slider .slides,
+.slider .slide {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* All slides stacked; opacity controls visibility for smooth crossfade */
+.slider .slide-content {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background: #0f0f14;
+    opacity: 0;
+    transition: opacity 0.95s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+.slider .slide-content.active {
+    opacity: 1;
+    pointer-events: all;
+    z-index: 2;
+}
+
+/* Product image fills right 55% */
+.slider .slide-content img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 55%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+/* Dark gradient overlay so text stays readable */
+.slider .slide-content::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 65%;
+    height: 100%;
+    background: linear-gradient(90deg, #0f0f14 52%, transparent 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Text block on the left */
+.slide .text {
+    position: absolute;
+    left: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 42%;
+    max-width: 480px;
+}
+.slider .slide-content.active .text {
+    animation: slideTextIn 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
+}
+@keyframes slideTextIn {
+    0%   { opacity: 0; transform: translateY(calc(-50% + 22px)); }
+    100% { opacity: 1; transform: translateY(-50%); }
+}
+.slide .text .slide-label {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #097a6e;
+    font-family: "Josefin Sans", sans-serif;
+    margin-bottom: 14px;
+    border-left: 3px solid #097a6e;
+    padding-left: 10px;
+}
+.slide .text h2 {
+    font-size: 52px;
+    font-weight: 300;
+    color: #ffffff;
+    line-height: 1.15;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+}
+.slide .text p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+.shop-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #fff;
+    color: #0f0f14;
+    padding: 14px 32px;
+    border-radius: 3px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none !important;
+}
+.shop-btn:hover {
+    background-color: #097a6e;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(9,122,110,0.35);
+}
+
+/* Slider navigation buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.8);
+    font-size: 18px;
+    border: 1.5px solid rgba(255,255,255,0.25);
+    background-color: rgba(255,255,255,0.08);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 10;
+    backdrop-filter: blur(6px);
+}
+.next { right: 28px; }
+.prev { left: 28px; }
+.prev:hover, .next:hover {
+    background-color: #097a6e;
+    border-color: #097a6e;
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(9,122,110,0.4);
+}
+.prev.disabled, .next.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+.prev.disabled:hover, .next.disabled:hover {
+    background-color: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.25);
+    box-shadow: none;
+}
+
+/* Slide indicator dots */
+.slider-dots {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+.slider-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.3);
+    cursor: pointer;
+    transition: all 0.4s ease;
+    border: none;
+    padding: 0;
+}
+.slider-dot.active {
+    background: #fff;
+    width: 26px;
+}
+/* ------------------------phone slider ------------------------ */
+.hero_for_phone{
+    display: none;
+}
+/* ------------------------- info section --------------------- */
+.information{
+    width: 100%;
+    display: flex;
+    padding: 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #878787;
+}
+.info{
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.info .info-icon img{
+    width: 80px;
+    margin-right: 20px;
+}
+.info .info-text h3{
+    font-size: 16px;
+    font-weight: 500;
+    color: #222222;
+    margin-bottom: 4px;
+}
+.info .info-text p{
+   color: #878787;
+   font-size: 14px;
+}
+/* --------------------- TRENDING PRODUCTS --------------------- */
+.top_products {
+    width: 100%;
+    background: #f8f7f5;
+    padding: 90px 0 110px;
+}
+
+.top_products .container {
+    padding: 0 8%;
+}
+
+.top_products .header {
+    text-align: center;
+    margin-bottom: 14px;
+}
+
+.section-eyebrow {
+    display: block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #097a6e;
+    margin-bottom: 14px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.top_products .header h3 {
+    font-size: 44px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    color: #111;
+    margin-bottom: 20px;
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+}
+
+.header-line {
+    width: 48px;
+    height: 1px;
+    background: #097a6e;
+    margin: 0 auto 18px;
+}
+
+.top_products .header p {
+    font-size: 14px;
+    font-weight: 300;
+    color: #999;
+    max-width: 460px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.trending-header-actions {
+    text-align: center;
+    margin: 28px 0 52px;
+}
+
+.view-all-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #111;
+    border-bottom: 1px solid #111;
+    padding-bottom: 3px;
+    transition: color 0.3s ease, border-color 0.3s ease;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.view-all-btn:hover {
+    color: #097a6e;
+    border-color: #097a6e;
+}
+
+.view-all-btn ion-icon {
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.view-all-btn:hover ion-icon {
+    transform: translateX(5px);
+}
+
+/* Products grid */
+.products {
+    display: grid;
+    gap: 24px;
+    padding: 0;
+}
+
+/* Product Card */
+.product-card {
+    background: #fff;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 56px rgba(0, 0, 0, 0.09);
+}
+
+.card-img {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+    background: #ede9e3;
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+    transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card-img:hover img {
+    transform: scale(1.06);
+}
+
+/* Slide-up overlay */
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card-img:hover .card-overlay {
+    transform: translateY(0);
+}
+
+.card-overlay .addToCart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    background: rgba(10, 10, 10, 0.86);
+    color: #fff;
+    width: 100%;
+    padding: 15px;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.card-overlay .addToCart:hover {
+    background: #097a6e;
+}
+
+.card-overlay .addToCart ion-icon {
+    font-size: 17px;
+}
+
+/* Card Info */
+.card-info {
+    padding: 16px 2px 12px;
+    border-top: 1px solid #f0efed;
+}
+
+.product-name {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #1a1a1a;
+    margin: 0 0 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.product-name:hover {
+    color: #097a6e;
+}
+
+.card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.product-price {
+    font-size: 13px;
+    font-weight: 400;
+    color: #555;
+    margin: 0;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.card-quick-view {
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #bbb;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Josefin Sans', sans-serif;
+    transition: color 0.3s ease;
+    padding: 0;
+}
+
+.card-quick-view:hover {
+    color: #097a6e;
+}
+/* ------------------------ collection --------------------- */
+.collection { 
+    padding: 60px 0;
+}
+
+.collection .container {
+    width: 100%;
+    padding-inline: 30px;
+    margin-bottom: 30px;
+}
+
+.collection-list {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 30px;
+}
+
+.collection-card {
+  background-color: gray;
+  min-height: 400px;
+  padding: 40px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.collection-card .card-title {
+     margin-bottom: 12px;
+}
+
+.collection-card .card-text {
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+  margin-block-end: auto;
+}
+
+.has-before,
+.has-after {
+  position: relative;
+  z-index: 1;
+}
+
+.has-before::before,
+.has-after::after {
+  content: "";
+  position: absolute;
+}
+.hover\:shine { 
+    overflow: hidden; 
+}
+
+.hover\:shine .has-bg-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  transition: 0.5s ease;
+}
+.hover\:shine:is(:hover, :focus) .has-bg-image { 
+    transform: scale(1.15); 
+}
+
+.hover\:shine::before {
+  top: 0;
+  left: -140%;
+  bottom: 0;
+  width: 100%;
+  background-image: linear-gradient(to right, transparent 50%, hsl(0, 0%, 100%, 0.3) 100%);
+  transform: skewX(-25deg);
+  transition: 0.5s ease;
+  z-index: 1;
+}
+
+.hover\:shine:is(:hover, :focus-within)::before { 
+    animation: shine 1s ease forwards; 
+}
+.btn-link {
+    color:#000;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    transition: 0.25s ease;
+}
+
+@keyframes shine {
+  0% { transform: skewX(-25deg) translateX(0); }
+  100% { transform: skewX(-25deg) translateX(250%); }
+}
+
+.has-bg-image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* ------------------------ news ----------------------- */
+.news{
+    width: 100%;
+    background-color: #dbd9d9bb;
+    height: 200px;
+    padding: 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.news .news-text h4{
+    font-size: 30px;
+    font-weight: 300;
+    margin-bottom: 8px;
+}
+.news .news-text p{
+    font-size: 16px;
+    font-weight: 400;
+    color:rgba(17, 17, 17, 0.8)
+}
+.news .Subscribe-form{
+    display: flex;
+}
+.news .Subscribe-form input{
+     width: 300px;
+     padding: 10px 20px;
+     border: none;
+     background-color: #f1f1f1;
+     color: #868686;
+}
+.news .Subscribe-form button{
+    background-color: #000;
+    color: #fff;
+    padding: 6px 20px;
+    border: none;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+

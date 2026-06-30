@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Checkout - Afrizone Hub">
+    <link rel="icon" href="images/grok-image-1ca24822-bac3-4959-90fa-de350227c113-removebg-preview.pngg" type="image/x-icon">
+    <!-- CSS -->
+    <link rel="stylesheet" href="Style/checkout.css">
+    <link rel="stylesheet" href="Style/main.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- Lottie -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+    <!-- Paystack Inline JS -->
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <title>Checkout — Afrizone Hub</title>
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-inner">
+            <img src="images/grok-image-1ca24822-bac3-4959-90fa-de350227c113-removebg-preview.png" alt="Afrizone Hub" class="preloader-logo">
+            <p class="preloader-tagline">Afrizone Hub</p>
+            <div class="preloader-bar"><div class="preloader-fill"></div></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="container" id="header">
+        <div class="header_top">
+            <div class="header_social">
+                <a href="https://www.instagram.com/sa__fashionstyle/?igsh=eWpjbWFqc3FlbGhl" target="_blank">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+                <a href="https://www.facebook.com/people/Afrizone Hub/100088622209447/?mibextid=LQQJ4d" target="_blank">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+                <a href="https://wa.me/2349028226429" target="_blank">
+                    <ion-icon name="logo-whatsapp"></ion-icon>
+                </a>
+            </div>
+            <a href="index.html"><img src="images/grok-image-1ca24822-bac3-4959-90fa-de350227c113-removebg-preview.png" alt="Afrizone Hub" id="logo"></a>
+            <div class="header_actions">
+                <a href="cartPage.html" class="icon-cart">
+                    <ion-icon name="cart-outline"></ion-icon>
+                    <span id="cart-counter">0</span>
+                </a>
+            </div>
+        </div>
+        <nav id="navbar">
+            <menu>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Shop</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </menu>
+        </nav>
+    </header>
+
+    <button id="scrollBtn"><ion-icon name="arrow-up-outline" id="btn-up"></ion-icon></button>
+
+    <!-- Main Checkout Page -->
+    <main class="checkout-page">
+        <div class="checkout-wrap">
+
+            <!-- Breadcrumb -->
+            <div class="checkout-breadcrumb">
+                <a href="index.html">Home</a>
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+                <a href="cartPage.html">Cart</a>
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+                <span>Checkout</span>
+            </div>
+
+            <div class="checkout-grid">
+
+                <!-- ===== LEFT: FORM ===== -->
+                <div class="checkout-form-section">
+                    <h1>Checkout</h1>
+
+                    <!-- Step Indicators -->
+                    <div class="checkout-steps">
+                        <div class="step active" id="step-ind-1">
+                            <div class="step-number">1</div>
+                            <span>Contact</span>
+                        </div>
+                        <div class="step-line" id="line-1"></div>
+                        <div class="step" id="step-ind-2">
+                            <div class="step-number">2</div>
+                            <span>Shipping</span>
+                        </div>
+                        <div class="step-line" id="line-2"></div>
+                        <div class="step" id="step-ind-3">
+                            <div class="step-number">3</div>
+                            <span>Payment</span>
+                        </div>
+                    </div>
+
+                    <form id="checkout-form" onsubmit="handleCheckout(event)" novalidate>
+
+                        <!-- SECTION 1: Contact -->
+                        <div class="form-section" id="section-contact">
+                            <h2>Contact Information</h2>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" id="firstName" name="firstName" placeholder="John" required autocomplete="given-name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" id="lastName" name="lastName" placeholder="Doe" required autocomplete="family-name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="john@example.com" required autocomplete="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" required autocomplete="tel">
+                            </div>
+                        </div>
+
+                        <!-- SECTION 2: Shipping -->
+                        <div class="form-section" id="section-shipping">
+                            <h2>Shipping Address</h2>
+                            <div class="form-group">
+                                <label for="address">Street Address</label>
+                                <input type="text" id="address" name="address" placeholder="123 Main Street" required autocomplete="street-address">
+                            </div>
+                            <div class="form-group">
+                                <label for="apartment">Apartment, Suite, etc. <span style="color:#bbb;font-weight:400">(optional)</span></label>
+                                <input type="text" id="apartment" name="apartment" placeholder="Apt 4B" autocomplete="address-line2">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="city">City</label>
+                                    <input type="text" id="city" name="city" placeholder="New York" required autocomplete="address-level2">
+                                </div>
+                                <div class="form-group">
+                                    <label for="state">State / Province</label>
+                                    <input type="text" id="state" name="state" placeholder="NY" required autocomplete="address-level1">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="zip">ZIP / Postal Code</label>
+                                    <input type="text" id="zip" name="zip" placeholder="10001" required autocomplete="postal-code">
+                                </div>
+                                <div class="form-group">
+                                    <label for="country">Country</label>
+                                    <select id="country" name="country" required autocomplete="country">
+                                        <option value="">Select Country</option>
+                                        <option value="ng">Nigeria</option>
+                                        <option value="us">United States</option>
+                                        <option value="ca">Canada</option>
+                                        <option value="uk">United Kingdom</option>
+                                        <option value="au">Australia</option>
+                                        <option value="gh">Ghana</option>
+                                        <option value="eg">Egypt</option>
+                                        <option value="fr">France</option>
+                                        <option value="de">Germany</option>
+                                        <option value="ae">UAE</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SECTION 3: Payment via Paystack -->
+                        <div class="form-section" id="section-payment">
+                            <h2>Payment</h2>
+                            <div class="paystack-panel">
+                                <div class="paystack-panel__header">
+                                    <div class="paystack-secure-badge">
+                                        <ion-icon name="shield-checkmark"></ion-icon>
+                                        <span>Secured by Paystack</span>
+                                    </div>
+                                    <div class="paystack-ssl-badge">
+                                        <ion-icon name="lock-closed"></ion-icon>
+                                        <span>SSL Encrypted</span>
+                                    </div>
+                                </div>
+                                <p class="paystack-panel__desc">
+                                    Clicking <strong>Pay Now</strong> opens a secure Paystack popup. Your card details go directly to Paystack — we never see them.
+                                </p>
+                                <div class="paystack-methods">
+                                    <div class="paystack-method">
+                                        <ion-icon name="card-outline"></ion-icon>
+                                        <span>Card</span>
+                                    </div>
+                                    <div class="paystack-method">
+                                        <ion-icon name="business-outline"></ion-icon>
+                                        <span>Bank Transfer</span>
+                                    </div>
+                                    <div class="paystack-method">
+                                        <ion-icon name="phone-portrait-outline"></ion-icon>
+                                        <span>USSD</span>
+                                    </div>
+                                    <div class="paystack-method">
+                                        <ion-icon name="wallet-outline"></ion-icon>
+                                        <span>Mobile Money</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="place-order-btn" id="payBtn">
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+                            Pay Now with Paystack
+                        </button>
+
+                    </form>
+                </div>
+
+                <!-- ===== RIGHT: ORDER SUMMARY ===== -->
+                <div class="checkout-summary">
+                    <div class="summary-card">
+                        <h2>Order Summary</h2>
+
+                        <div class="summary-items" id="summary-items">
+                            <p style="font-size:13px;color:#aaa;text-align:center;padding:20px 0">Loading items…</p>
+                        </div>
+
+                        <div class="summary-totals">
+                            <div class="summary-row">
+                                <span>Subtotal</span>
+                                <span id="checkout-subtotal">$0.00</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Shipping</span>
+                                <span>$70.00</span>
+                            </div>
+                            <div class="summary-row total">
+                                <span>Total</span>
+                                <span id="checkout-total">$0.00</span>
+                            </div>
+                        </div>
+
+                        <div class="trust-badges">
+                            <div class="trust-badge">
+                                <ion-icon name="lock-closed-outline"></ion-icon>
+                                <span>SSL Secure Checkout</span>
+                            </div>
+                            <div class="trust-badge">
+                                <ion-icon name="shield-checkmark-outline"></ion-icon>
+                                <span>Buyer Protection Guaranteed</span>
+                            </div>
+                            <div class="trust-badge">
+                                <ion-icon name="refresh-outline"></ion-icon>
+                                <span>Easy 30-Day Returns</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- ===== SUCCESS OVERLAY ===== -->
+    <div class="success-overlay" id="success-overlay">
+        <div class="success-content">
+            <div id="checkoutIcon"></div>
+            <h3>Payment Successful!</h3>
+            <p class="success-sub">Thank you for your purchase. A confirmation email has been sent to <strong id="success-email"></strong> <br>please check spam folder as well</br></p>
+            <div class="order-details-row">
+                <div class="order-detail-item">
+                    <span class="detail-label">Order Ref</span>
+                    <span class="detail-value" id="order-number">—</span>
+                </div>
+                <div class="order-detail-item">
+                    <span class="detail-label">Total</span>
+                    <span class="detail-value" id="order-total">—</span>
+                </div>
+                <div class="order-detail-item">
+                    <span class="detail-label">Date</span>
+                    <span class="detail-value" id="order-date">—</span>
+                </div>
+            </div>
+            <p class="success-paystack-ref">Paystack Ref: <span id="paystack-ref">—</span></p>
+            <button class="back-home-btn" onclick="backHome()">
+                <ion-icon name="home-outline"></ion-icon>
+                Back to Home
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-logo">
+                <img src="images/grok-image-1ca24822-bac3-4959-90fa-de350227c113-removebg-preview.png" alt="logo" width="140">
+                <p>The customer is at the heart of our unique business model, which includes design.</p>
+            </div>
+            <div class="footer-list">
+                <div class="list">
+                    <h4>SHOPPING</h4>
+                    <ul>
+                        <li><a href="products.html">Clothing Store</a></li>
+                        <li><a href="products.html">Trending Shoes</a></li>
+                        <li><a href="products.html">Accessories</a></li>
+                        <li><a href="products.html">Sale</a></li>
+                    </ul>
+                </div>
+                <div class="list">
+                    <h4>Customer Services</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="https://wa.me/2349028226429" target="_blank">WhatsApp Us</a></li>
+                        <li><a href="tel:+2349028226429">Call Us</a></li>
+                        <li><a href="contact.html">Returns &amp; Exchanges</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-company-name">
+                © 2026 Afrizone Hub. All rights reserved. Made with <ion-icon name="heart"></ion-icon>
+            </p>
+        </div>
+    </footer>
+
+    <script src="JavaScript/main.js"></script>
+
+    <script>
+    /* ================================================================
+       CONFIGURATION — replace these placeholders with your real keys
+       ================================================================
+       Paystack: dashboard.paystack.com → Settings → API Keys & Webhooks
+       EmailJS:  app.emailjs.com → Account → API Keys + Email Services + Templates
+    ================================================================ */
+    var PAYSTACK_PUBLIC_KEY    = 'pk_test_c5838aad13725c20ad978f70cd3344ff5f460c58';
+    var EMAILJS_PUBLIC_KEY     = 'YQ8xcEq4R2Zoh0nUA';
+    var EMAILJS_SERVICE_ID     = 'service_kng6ggz';
+    var EMAILJS_CUST_TEMPLATE  = 'template_ynonpu8';
+    var EMAILJS_OWNER_TEMPLATE = 'template_hmt4mwz';
+    var OWNER_EMAIL            = 'afrizone08@gmail.com';
+
+    /* ===== EmailJS: send via REST API (bypasses origin restrictions) ===== */
+    function emailjsSend(templateId, params) {
+        return fetch('https://api.emailjs.com/api/v1.0/email/send', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                service_id:      EMAILJS_SERVICE_ID,
+                template_id:     templateId,
+                user_id:         EMAILJS_PUBLIC_KEY,
+                template_params: params
+            })
+        }).then(function(res) {
+            if (!res.ok) {
+                return res.text().then(function(t) { throw new Error(res.status + ': ' + t); });
+            }
+            return res;
+        });
+    }
+
+    /* ===== Cart counter ===== */
+    (function() {
+        var cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        var qty = cart.reduce(function(s, p){ return s + p.quantity; }, 0);
+        document.getElementById('cart-counter').textContent = qty;
+    })();
+
+    /* ===== Populate order summary ===== */
+    window.addEventListener('DOMContentLoaded', function() {
+        var cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        var summaryEl = document.getElementById('summary-items');
+
+        if (cart.length === 0) {
+            summaryEl.innerHTML = '<p style="font-size:13px;color:#aaa;text-align:center;padding:20px 0">Your cart is empty.</p>';
+            document.getElementById('checkout-subtotal').textContent = '₦0.00';
+            document.getElementById('checkout-total').textContent = '₦70.00';
+            return;
+        }
+
+        var subtotal = 0;
+        var html = '';
+        cart.forEach(function(product) {
+            var price = parseFloat(product.price.replace(/[^0-9.]/g, ''));
+            var lineTotal = price * product.quantity;
+            subtotal += lineTotal;
+            html += '<div class="summary-item">'
+                +   '<div class="summary-item-img">'
+                +     '<img src="' + product.images[0] + '" alt="' + product.name + '">'
+                +     '<span class="item-qty-badge">' + product.quantity + '</span>'
+                +   '</div>'
+                +   '<div class="summary-item-info">'
+                +     '<p>' + product.name + '</p>'
+                +     '<span>₦' + lineTotal.toFixed(2) + '</span>'
+                +   '</div>'
+                + '</div>';
+        });
+        summaryEl.innerHTML = html;
+        document.getElementById('checkout-subtotal').textContent = '₦' + subtotal.toFixed(2);
+        document.getElementById('checkout-total').textContent = '₦' + (subtotal + 70).toFixed(2);
+        localStorage.setItem('total price', subtotal + 70);
+    });
+
+    /* ===== Step indicator ===== */
+    document.getElementById('section-contact').querySelectorAll('input').forEach(function(el) {
+        el.addEventListener('focus', function() { setStep(1); });
+    });
+    document.getElementById('section-shipping').querySelectorAll('input, select').forEach(function(el) {
+        el.addEventListener('focus', function() { setStep(2); });
+    });
+    document.getElementById('section-payment').addEventListener('click', function() { setStep(3); });
+
+    function setStep(n) {
+        for (var i = 1; i <= 3; i++) {
+            var ind = document.getElementById('step-ind-' + i);
+            ind.classList.remove('active', 'completed');
+            if (i < n) ind.classList.add('completed');
+            if (i === n) ind.classList.add('active');
+        }
+        for (var j = 1; j <= 2; j++) {
+            var line = document.getElementById('line-' + j);
+            if (j < n) line.classList.add('done');
+            else line.classList.remove('done');
+        }
+    }
+
+    /* ===== Form submit → validate → open Paystack ===== */
+    function handleCheckout(e) {
+        e.preventDefault();
+        var form = document.getElementById('checkout-form');
+        var inputs = form.querySelectorAll('input[required], select[required]');
+        var valid = true;
+        inputs.forEach(function(input) {
+            if (!input.value.trim()) {
+                input.style.borderColor = '#e74c3c';
+                valid = false;
+                input.addEventListener('input', function() {
+                    input.style.borderColor = '';
+                }, { once: true });
+            }
+        });
+        if (!valid) {
+            var firstError = form.querySelector('input[style*="e74c3c"], select[style*="e74c3c"]');
+            if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            return;
+        }
+
+        var email     = document.getElementById('email').value.trim();
+        var firstName = document.getElementById('firstName').value.trim();
+        var lastName  = document.getElementById('lastName').value.trim();
+        var total     = parseFloat(localStorage.getItem('total price') || '0');
+        var amountKobo = Math.round(total * 100);
+        var orderRef  = 'AZH-' + Date.now();
+
+        var btn = document.getElementById('payBtn');
+        btn.disabled = true;
+        btn.innerHTML = '<ion-icon name="hourglass-outline"></ion-icon> Opening payment…';
+
+        var handler = PaystackPop.setup({
+            key: PAYSTACK_PUBLIC_KEY,
+            email: email,
+            amount: amountKobo,
+            currency: 'NGN',
+            ref: orderRef,
+            metadata: {
+                custom_fields: [{
+                    display_name: 'Customer Name',
+                    variable_name: 'customer_name',
+                    value: firstName + ' ' + lastName
+                }]
+            },
+            callback: function(response) {
+                sendOrderEmails(response.reference, orderRef, total);
+                showSuccess(orderRef, response.reference, total, email);
+            },
+            onClose: function() {
+                btn.disabled = false;
+                btn.innerHTML = '<ion-icon name="lock-closed-outline"></ion-icon> Pay Now with Paystack';
+            }
+        });
+        handler.openIframe();
+    }
+
+    /* ===== Send order emails via EmailJS ===== */
+    function sendOrderEmails(paystackRef, orderRef, total) {
+        var cart      = JSON.parse(localStorage.getItem('cart') || '[]');
+        var firstName = document.getElementById('firstName').value.trim();
+        var lastName  = document.getElementById('lastName').value.trim();
+        var email     = document.getElementById('email').value.trim();
+        var phone     = document.getElementById('phone').value.trim();
+        var address   = document.getElementById('address').value.trim();
+        var apartment = document.getElementById('apartment').value.trim();
+        var city      = document.getElementById('city').value.trim();
+        var state     = document.getElementById('state').value.trim();
+        var zip       = document.getElementById('zip').value.trim();
+
+        var now = new Date();
+        var orderDate = now.toLocaleDateString('en-NG', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+        var shippingAddress = address + (apartment ? ', ' + apartment : '') + ', ' + city + ', ' + state + ' ' + zip;
+
+        var itemsList = cart.map(function(p) {
+            var price = parseFloat(p.price.replace(/[^0-9.]/g, ''));
+            return p.name + ' x' + p.quantity + ' — ₦' + (price * p.quantity).toFixed(2);
+        }).join('\n');
+
+        var params = {
+            customer_name:     firstName + ' ' + lastName,
+            customer_email:    email,
+            customer_phone:    phone,
+            order_ref:         orderRef,
+            order_date:        orderDate,
+            order_total:       '₦' + total.toFixed(2),
+            shipping_address:  shippingAddress,
+            items_list:        itemsList,
+            paystack_ref:      paystackRef
+        };
+
+        /* Send to customer */
+        emailjsSend(EMAILJS_CUST_TEMPLATE, Object.assign({}, params, {
+            to_email: email,
+            to_name:  firstName + ' ' + lastName
+        })).then(function() {
+            console.log('✅ Customer email sent to', email);
+        }).catch(function(err) {
+            console.error('❌ Customer email failed:', err.message);
+        });
+
+        /* Send to store owner */
+        emailjsSend(EMAILJS_OWNER_TEMPLATE, Object.assign({}, params, {
+            to_email: OWNER_EMAIL,
+            to_name:  'Afrizone Hub'
+        })).then(function() {
+            console.log('✅ Owner email sent to', OWNER_EMAIL);
+        }).catch(function(err) {
+            console.error('❌ Owner email failed:', err.message);
+        });
+    }
+
+    /* ===== Show success overlay ===== */
+    function showSuccess(orderRef, paystackRef, total, email) {
+        var overlay = document.getElementById('success-overlay');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+
+        lottie.loadAnimation({
+            container: document.getElementById('checkoutIcon'),
+            renderer: 'svg',
+            loop: false,
+            autoplay: true,
+            path: 'json/AnimationCheckoutPage.json'
+        });
+
+        document.getElementById('order-total').textContent = '₦' + total.toFixed(2);
+        document.getElementById('order-number').textContent = orderRef;
+        document.getElementById('paystack-ref').textContent = paystackRef;
+        document.getElementById('success-email').textContent = email;
+
+        var now = new Date();
+        var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        document.getElementById('order-date').textContent = months[now.getMonth()] + ' ' + now.getDate() + ', ' + now.getFullYear();
+
+        localStorage.removeItem('cart');
+    }
+
+    /* ===== Back to home ===== */
+    function backHome() {
+        window.location.href = 'index.html';
+    }
+    </script>
+
+</body>
+</html>

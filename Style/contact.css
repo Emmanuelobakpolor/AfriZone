@@ -1,0 +1,588 @@
+/* ================================================================
+   CONTACT PAGE — contact.css
+   ================================================================ */
+
+body {
+    background: #f8f7f5;
+}
+
+/* ── Hero ── */
+.contact-hero {
+    background: #0f0f14;
+    padding: 64px 8%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(9,122,110,0.12) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.contact-hero__eyebrow {
+    display: block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #097a6e;
+    margin-bottom: 14px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.contact-hero__title {
+    font-size: 52px;
+    font-weight: 200;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 20px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.contact-hero__breadcrumb {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #666;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.contact-hero__breadcrumb a {
+    color: #888;
+    transition: color 0.3s ease;
+}
+
+.contact-hero__breadcrumb a:hover { color: #097a6e; }
+
+.contact-hero__breadcrumb span {
+    margin: 0 10px;
+    color: #444;
+}
+
+/* ── Quick Contact CTAs ── */
+.quick-contact {
+    background: #0f0f14;
+    padding: 72px 8%;
+    text-align: center;
+    border-top: 1px solid #1e1e26;
+}
+
+.quick-contact__eyebrow {
+    display: block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #097a6e;
+    margin-bottom: 14px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.quick-contact__title {
+    font-size: 42px;
+    font-weight: 200;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 14px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.quick-contact__desc {
+    font-size: 13px;
+    color: #777;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 48px;
+    letter-spacing: 0.3px;
+}
+
+.quick-contact__btns {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+}
+
+.qc-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    padding: 20px 36px;
+    min-width: 280px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.qc-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.08);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.qc-btn:hover::after { opacity: 1; }
+
+.qc-btn:hover {
+    transform: translateY(-3px);
+}
+
+.qc-btn--call {
+    background: #fff;
+    box-shadow: 0 8px 32px rgba(255,255,255,0.08);
+}
+
+.qc-btn--call:hover {
+    box-shadow: 0 12px 40px rgba(255,255,255,0.15);
+}
+
+.qc-btn--whatsapp {
+    background: #25D366;
+    box-shadow: 0 8px 32px rgba(37,211,102,0.3);
+}
+
+.qc-btn--whatsapp:hover {
+    background: #1ebe5a;
+    box-shadow: 0 12px 40px rgba(37,211,102,0.5);
+}
+
+.qc-btn__icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.qc-btn--call .qc-btn__icon {
+    background: #0f0f14;
+}
+
+.qc-btn--call .qc-btn__icon ion-icon {
+    font-size: 24px;
+    color: #fff;
+}
+
+.qc-btn--whatsapp .qc-btn__icon {
+    background: rgba(255,255,255,0.2);
+}
+
+.qc-btn--whatsapp .qc-btn__icon ion-icon {
+    font-size: 26px;
+    color: #fff;
+}
+
+.qc-btn__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+}
+
+.qc-btn__label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.qc-btn--call .qc-btn__label { color: #888; }
+.qc-btn--whatsapp .qc-btn__label { color: rgba(255,255,255,0.75); }
+
+.qc-btn__number {
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Josefin Sans', sans-serif;
+    letter-spacing: 1.5px;
+}
+
+.qc-btn--call .qc-btn__number { color: #111; }
+.qc-btn--whatsapp .qc-btn__number { color: #fff; }
+
+.quick-contact__note {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    color: #555;
+    font-family: 'Josefin Sans', sans-serif;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.quick-contact__note ion-icon {
+    font-size: 14px;
+    color: #097a6e;
+}
+
+/* ── Main contact area ── */
+.contact-main {
+    padding: 80px 8% 100px;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 64px;
+    align-items: start;
+}
+
+/* ── Info panel ── */
+.contact-info__heading {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #111;
+    font-family: 'Josefin Sans', sans-serif;
+    margin-bottom: 12px;
+}
+
+.contact-info__line {
+    width: 40px;
+    height: 1px;
+    background: #097a6e;
+    margin-bottom: 28px;
+}
+
+.contact-info__tagline {
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: #111;
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+.contact-info__desc {
+    font-size: 13px;
+    font-weight: 300;
+    color: #888;
+    line-height: 1.9;
+    margin-bottom: 40px;
+    max-width: 340px;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.contact-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.contact-detail__icon {
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border: 1px solid #e8e6e3;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.contact-detail__icon ion-icon {
+    font-size: 17px;
+    color: #097a6e;
+}
+
+.contact-detail:hover .contact-detail__icon {
+    background: #097a6e;
+    border-color: #097a6e;
+}
+
+.contact-detail:hover .contact-detail__icon ion-icon {
+    color: #fff;
+}
+
+.contact-detail__label {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #aaa;
+    margin-bottom: 4px;
+}
+
+.contact-detail__value {
+    font-size: 13px;
+    font-weight: 400;
+    color: #222;
+    font-family: 'Josefin Sans', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.contact-detail__value a {
+    color: #222;
+    transition: color 0.3s ease;
+}
+
+.contact-detail__value a:hover { color: #097a6e; }
+
+.contact-socials {
+    display: flex;
+    gap: 12px;
+}
+
+.contact-socials a {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #e0ded9;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-size: 18px;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.contact-socials a:hover {
+    background: #097a6e;
+    border-color: #097a6e;
+    color: #fff;
+}
+
+/* ── Contact Form ── */
+.contact-form-wrap {
+    background: #fff;
+    padding: 48px;
+    box-shadow: 0 8px 48px rgba(0,0,0,0.06);
+}
+
+.contact-form__heading {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #097a6e;
+    font-family: 'Josefin Sans', sans-serif;
+    margin-bottom: 8px;
+}
+
+.contact-form__title {
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #111;
+    margin-bottom: 36px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-field label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #999;
+}
+
+.form-field input,
+.form-field textarea,
+.form-field select {
+    background: #faf9f7;
+    border: 1px solid #e8e6e3;
+    border-radius: 0;
+    padding: 14px 16px;
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+    color: #222;
+    outline: none;
+    transition: border-color 0.3s ease;
+    width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:focus {
+    border-color: #097a6e;
+    background: #fff;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+    color: #ccc;
+    font-size: 12px;
+}
+
+.form-field textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+.form-submit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 8px;
+}
+
+.form-submit__note {
+    font-size: 10px;
+    color: #bbb;
+    font-family: 'Josefin Sans', sans-serif;
+    letter-spacing: 1px;
+}
+
+.form-submit__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #111;
+    color: #fff;
+    border: none;
+    padding: 16px 32px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.form-submit__btn:hover { background: #097a6e; }
+
+.form-submit__btn ion-icon { font-size: 16px; }
+
+/* ── Success state ── */
+.form-success {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 0;
+    gap: 16px;
+}
+
+.form-success.show { display: flex; }
+
+.form-success__icon {
+    width: 64px;
+    height: 64px;
+    background: #097a6e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-success__icon ion-icon {
+    font-size: 30px;
+    color: #fff;
+}
+
+.form-success h3 {
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #111;
+}
+
+.form-success p {
+    font-size: 13px;
+    color: #888;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+    .contact-main {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-main {
+        padding: 48px 4% 80px;
+    }
+
+    .contact-hero__title {
+        font-size: 34px;
+        letter-spacing: 6px;
+    }
+
+    .contact-form-wrap {
+        padding: 32px 24px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .form-submit {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+
+    .form-submit__btn {
+        justify-content: center;
+    }
+
+    .quick-contact {
+        padding: 56px 6%;
+    }
+
+    .quick-contact__title {
+        font-size: 28px;
+        letter-spacing: 4px;
+    }
+
+    .quick-contact__btns {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .qc-btn {
+        min-width: 0;
+        width: 100%;
+        max-width: 340px;
+    }
+}

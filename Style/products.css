@@ -1,0 +1,429 @@
+/* ================================================================
+   SHOP PAGE — products.css
+   Matches the editorial aesthetic of the Trending Now section
+   ================================================================ */
+
+body {
+    background: #f8f7f5;
+}
+
+/* ── Shop Hero Banner ── */
+.shop-hero {
+    background: #0f0f14;
+    padding: 64px 8%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.shop-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(9,122,110,0.12) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.shop-hero__eyebrow {
+    display: block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #097a6e;
+    margin-bottom: 14px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.shop-hero__title {
+    font-size: 52px;
+    font-weight: 200;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 20px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.shop-hero__breadcrumb {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #666;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.shop-hero__breadcrumb a {
+    color: #888;
+    transition: color 0.3s ease;
+}
+
+.shop-hero__breadcrumb a:hover {
+    color: #097a6e;
+}
+
+.shop-hero__breadcrumb span {
+    margin: 0 10px;
+    color: #444;
+}
+
+/* ── Toolbar ── */
+.product-header {
+    background: #fff;
+    padding: 13px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eeecea;
+    border-radius: 0;
+}
+
+.product-header .menu-icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #333;
+    visibility: hidden;
+}
+
+.menu-icon__label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #333;
+}
+
+.product-header-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.product-header-right .sortBy {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.product-header-right .sortBy > span {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #aaa;
+}
+
+.product-header-right #sort {
+    border: none;
+    background: transparent;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    color: #111;
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 6px 4px;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+#productCount {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #bbb;
+}
+
+/* ── Main layout ── */
+main {
+    padding: 0 8% 100px;
+    background: #f8f7f5;
+}
+
+main .container {
+    display: flex;
+    align-items: flex-start;
+    gap: 52px;
+    padding-top: 48px;
+}
+
+/* ── Sidebar ── */
+.aside {
+    width: 200px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 100px;
+    background: transparent;
+    padding: 0;
+    overflow-x: hidden;
+    transition: 0.45s;
+    z-index: 1;
+}
+
+.aside h2 {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #111;
+    margin-bottom: 24px;
+    font-family: 'Josefin Sans', sans-serif;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #ddd;
+}
+
+.shop_categories {
+    display: flex;
+    flex-direction: column;
+}
+
+.shop_categories a {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #aaa;
+    border-bottom: 1px solid #eee;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+    text-decoration: none;
+}
+
+.shop_categories a::before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 1px;
+    background: #097a6e;
+    margin-right: 0;
+    transition: width 0.3s ease, margin-right 0.3s ease;
+    flex-shrink: 0;
+}
+
+.shop_categories a:hover,
+.shop_categories a.active {
+    color: #097a6e;
+    padding-left: 4px;
+}
+
+.shop_categories a:hover::before,
+.shop_categories a.active::before {
+    width: 14px;
+    margin-right: 10px;
+}
+
+/* ── Products area ── */
+.products {
+    flex: 1;
+    min-width: 0;
+    padding: 0;
+    margin-left: 0;
+}
+
+.products .content {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* ── Product Card — identical to trending section ── */
+.product-card {
+    background: #fff;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 56px rgba(0, 0, 0, 0.09);
+}
+
+.card-img {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+    background: #ede9e3;
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+    transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card-img:hover img {
+    transform: scale(1.06);
+}
+
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card-img:hover .card-overlay {
+    transform: translateY(0);
+}
+
+.card-overlay .addToCart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    background: rgba(10, 10, 10, 0.86);
+    color: #fff;
+    width: 100%;
+    padding: 15px;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.card-overlay .addToCart:hover {
+    background: #097a6e;
+}
+
+.card-overlay .addToCart ion-icon {
+    font-size: 17px;
+}
+
+.card-info {
+    padding: 16px 2px 12px;
+    border-top: 1px solid #f0efed;
+}
+
+.product-name {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #1a1a1a;
+    margin: 0 0 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.product-name:hover {
+    color: #097a6e;
+}
+
+.card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.product-price {
+    font-size: 13px;
+    font-weight: 400;
+    color: #555;
+    margin: 0;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.card-quick-view {
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #bbb;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Josefin Sans', sans-serif;
+    transition: color 0.3s ease;
+    padding: 0;
+}
+
+.card-quick-view:hover {
+    color: #097a6e;
+}
+
+/* ── Responsive ── */
+@media screen and (max-width: 1024px) {
+    .products .content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    main {
+        padding: 0 4% 60px;
+    }
+
+    .product-header {
+        padding: 13px 4%;
+    }
+
+    .product-header .menu-icon {
+        visibility: visible;
+    }
+
+    .sortBy {
+        display: none;
+    }
+
+    main .container {
+        display: block;
+        padding-top: 24px;
+    }
+
+    .aside {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        bottom: 0;
+        background: #fff;
+        padding: 64px 32px 40px;
+        z-index: 9998;
+        overflow-y: auto;
+        box-shadow: 4px 0 32px rgba(0, 0, 0, 0.14);
+        flex-shrink: unset;
+    }
+
+    .aside.open {
+        left: 0;
+    }
+
+    .products {
+        padding: 0;
+    }
+
+    .products .content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .shop-hero__title {
+        font-size: 34px;
+        letter-spacing: 6px;
+    }
+}

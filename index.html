@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover the latest trends in fashion for 
+    women and men at Afrizone Hub. Shop our wide selection of clothes, bags,
+    jewelry, and more. Elevate your style with our curated collections.">
+    <meta name="keywords" content="clothes, women, men, fashion, bags, jewelry, Afrizone Hub, latest trends, stylish clothing, accessories">
+    <meta name="author" content="Afrizone Hub">
+    <link rel="icon" href="images/grok-image-1ca24822-bac3-4959-90fa-de350227c113-removebg-preview.pngg" type="image/x-icon">
+    <!-- css -->
+    <link rel="stylesheet" href="Style/style.css">
+    <link rel="stylesheet" href="Style/main.css">
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <!-- icon -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <title>SA__FashionStyle</title>
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-inner">
+            <img src="images/grok-image-1ca24822-bac3-4959-90fa-de350227c113-removebg-preview.png" alt="Afrizone Hub" class="preloader-logo">
+            <p class="preloader-tagline">Afrizone Hub</p>
+            <div class="preloader-bar"><div class="preloader-fill"></div></div>
+        </div>
+    </div>
+
+    <header class="container" id="header">
+        <div class="header_top">
+              <div class="header_social">
+                <a href="https://www.instagram.com/sa__fashionstyle/?igsh=eWpjbWFqc3FlbGhl" target="_blank">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+                <a href="https://www.facebook.com/people/Afrizone Hub/100088622209447/?mibextid=LQQJ4d" target="_blank">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+                <a href="https://wa.me/2349028226429" target="_blank">
+                    <ion-icon name="logo-whatsapp"></ion-icon>
+                </a>
+              </div>
+              <img src="images/grok-image-1ca24822-bac3-4959-90fa-de350227c113-removebg-preview.png" alt="page logo" id="logo">
+              <div class="header_actions">
+                   <a href="#" class="icon-cart">
+                     <ion-icon name="cart-outline"></ion-icon>
+                     <span id="cart-counter">0</span>
+                   </a>
+              </div>
+        </div>
+        <nav id="navbar">
+            <menu>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Shop</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </menu>
+        </nav>
+    </header>
+    <button id="scrollBtn"><ion-icon name="arrow-up-outline" id="btn-up"></ion-icon></button>
+
+    <!-- Slider -->
+    <div class="slider">
+        <div class="slides">
+            <div class="slide">
+                <div class="slide-content">
+                    <img src="images/Man/hoodie-in-blue_01.webp" alt="Men's Hoodie">
+                    <div class="text">
+                        <span class="slide-label">New Collection 2024</span>
+                        <h2>Casual Style<br>Urban Edge</h2>
+                        <p>Premium menswear crafted for the modern man</p>
+                        <a href="products.html" class="shop-btn">Shop Now</a>
+                    </div>
+                </div>
+                <div class="slide-content">
+                    <img src="images/Man/jacket-with-hood-in-stone_02.webp" alt="Men's Jacket">
+                    <div class="text">
+                        <span class="slide-label">Outerwear Collection</span>
+                        <h2>Premium<br>Outerwear</h2>
+                        <p>Elevate every look with our signature jacket collection</p>
+                        <a href="products.html" class="shop-btn">Explore Now</a>
+                    </div>
+                </div>
+                <div class="slide-content">
+                    <img src="images/Man/slim-formal-shirt-in-white_01.webp" alt="Men's Formal Shirt">
+                    <div class="text">
+                        <span class="slide-label">Up to 30% Off</span>
+                        <h2>Sharp &amp;<br>Sophisticated</h2>
+                        <p>Command attention with our tailored formal collection</p>
+                        <a href="products.html" class="shop-btn">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navigation">
+            <button class="prev" onclick="prevSlider();">
+                <ion-icon name="arrow-back-outline"></ion-icon>
+            </button>
+            <button class="next" onclick="nextSlider();">
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+            </button>
+        </div>
+        <div class="slider-dots" id="slider-dots">
+            <button class="slider-dot active" onclick="goToSlide(1)"></button>
+            <button class="slider-dot" onclick="goToSlide(2)"></button>
+            <button class="slider-dot" onclick="goToSlide(3)"></button>
+        </div>
+    </div>
+    <div class="hero_for_phone">
+        <div class="hero-content">
+            <img src="images/Man/hoodie-in-blue_01.webp" alt="Men's Collection">
+            <div class="text">
+             <h2>Men's Collection</h2>
+             <p>Urban style for the modern man</p>
+             <a href="products.html" class="shop-btn">Shop Now</a>
+            </div>
+         </div>
+    </div>
+    <!-- cart -->
+    <div class="cart-section">
+        <div class="cart-header">
+            <h2>SHOPPING CART</h2>
+            <div class="closeCart">
+                <ion-icon name="close-outline" id="closeCart"></ion-icon>
+            </div>
+        </div>
+        <div class="cart_products">
+              <!-- add cart products in js -->
+        </div>
+        <div class="cart_total">
+            <h3>Total:</h3>
+            <span id="total_price"></span>
+        </div>
+        <div class="btn_control">
+            <button class="viewCart" onclick="viewCart();">View Cart</button>
+            <button class="checkout" onclick="checkOut();">Check Out</button>
+        </div>
+    </div>
+    <!-- info -->
+    <div class="information">
+        <div class="info reveal" style="transition-delay:0s">
+            <div class="info-icon">
+                <img src="images/global-distribution.png" alt="global-distribution" >
+            </div>
+            <div class="info-text">
+                <h3>Shipping Worldwide</h3>
+                <p> Free shipping on all US order or order above $100</p>
+            </div>
+        </div>
+        <div class="info reveal" style="transition-delay:0.1s">
+            <div class="info-icon">
+                <img src="images/delivery-status.png" alt="delivery-status" >
+            </div>
+            <div class="info-text">
+                <h3>14 Days Return</h3>
+                <p>Simply return it within 30 days for an exchange.</p>
+            </div>
+        </div>
+        <div class="info reveal" style="transition-delay:0.2s">
+            <div class="info-icon">
+                <img src="images/check.png" alt="Security" >
+            </div>
+            <div class="info-text">
+                <h3>Security Payment</h3>
+                <p>We ensure secure payment with PEV</p>
+            </div>
+        </div>
+        <div class="info reveal" style="transition-delay:0.3s">
+            <div class="info-icon">
+                <img src="images/24-hours-support.png" alt="24-hours-support" >
+            </div>
+            <div class="info-text">
+                <h3>24/7 Support</h3>
+                <p>Contact us 24 hours a day, 7 days a week</p>
+            </div>
+        </div>
+    </div>
+    <!-- Top Products -->
+    <div class="top_products">
+        <div class="container">
+            <div class="header reveal">
+                <span class="section-eyebrow">Curated For You</span>
+                <h3>Trending Now</h3>
+                <div class="header-line"></div>
+                <p>The most-wanted pieces this season — styled for the modern wardrobe.</p>
+            </div>
+            <div class="trending-header-actions reveal">
+                <a href="products.html" class="view-all-btn">Explore All <ion-icon name="arrow-forward-outline"></ion-icon></a>
+            </div>
+            <div class="products">
+              <!-- add by js -->
+            </div>
+        </div>
+    </div>
+    <!-- collection -->
+    <div class="collection" id="collection" aria-label="collection" data-section>
+        <div class="container">
+          <ul class="collection-list">
+            <li class="reveal" style="transition-delay:0s">
+              <div class="collection-card has-before hover:shine">
+
+                <h2 class="card-title">Summer Collection</h2>
+
+                <p class="card-text">Starting at $17.99</p>
+
+                <a href="products.html" class="btn-link">
+                  <span>Shop Now</span>
+
+                  <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                </a>
+
+                <div class="has-bg-image" style="background-image: url('images/background/banner1.webp')"></div>
+                </div>
+            </li>
+
+            <li class="reveal" style="transition-delay:0.15s">
+              <div class="collection-card has-before hover:shine">
+
+                <h2 class="card-title">What’s New?</h2>
+
+                <p class="card-text">Get the glow</p>
+
+                <a href="#" class="btn-link">
+                  <span>Discover Now</span>
+
+                  <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                </a>
+
+                <div class="has-bg-image" style="background-image: url('images/background/banner2.webp')"></div>
+              </div>
+            </li>
+
+            <li class="reveal" style="transition-delay:0.3s">
+              <div class="collection-card has-before hover:shine">
+
+                <h2 class="card-title">Buy 1 Get 1</h2>
+
+                <p class="card-text">Starting at $7.99</p>
+
+                <a href="#" class="btn-link">
+                  <span>Discover Now</span>
+                  <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                </a>
+
+                <div class="has-bg-image" style="background-image: url('images/background/banner3.webp')"></div>
+
+              </div>
+            </li>
+
+          </ul>
+        </div>
+    </div>
+    <!-- news -->
+    <div class="news hight reveal">
+        <div class="news-text">
+            <h4>Newsletter</h4>
+            <p>
+                Subscribe to our newsletter and get 20% off your first purchase
+            </p>
+        </div>
+        <div class="Subscribe-form">
+            <input type="email" name="email" placeholder="Enter Your Email" autocomplete="off">
+            <button type="submit" value="submit">
+                <img src="images/send.png" alt="send-data" width="30"/>
+            </button>
+        </div>
+    </div>
+    <footer class="footer reveal">
+         <div class="footer-top">
+            <div class="footer-logo">
+                <img src="images/grok-image-1ca24822-bac3-4959-90fa-de350227c113-removebg-preview.png" alt="logo" width="140">
+                <p>The customer is at the heart of our unique business model, which includes design.</p>
+            </div>
+            <div class="footer-list">
+                <div class="list">
+                    <h4>SHOPPING</h4>
+                    <ul>
+                        <li><a href="products.html">Clothing Store</a></li>
+                        <li><a href="products.html">Trending Shoes</a></li>
+                        <li><a href="products.html">Accessories</a></li>
+                        <li><a href="products.html">Sale</a></li>
+                    </ul>
+                </div>
+                <div class="list">
+                    <h4>Customer Services</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="https://wa.me/2349028226429" target="_blank">WhatsApp Us</a></li>
+                        <li><a href="tel:+2349028226429">Call Us</a></li>
+                        <li><a href="contact.html">Returns &amp; Exchanges</a></li>
+                    </ul>
+                </div>
+            </div>
+         </div>
+        <div class="footer-bottom">
+            <p class="footer-company-name">
+                © 2026 Afrizone Hub. All rights reserved.
+            </p>
+        </div>
+    </footer>
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/2349028226429?text=Hi%20Afrizone%20Hub!%20I%20need%20some%20help%20%F0%9F%91%8B" target="_blank" class="whatsapp-float" aria-label="Chat with us on WhatsApp">
+        <div class="whatsapp-float__icon">
+            <ion-icon name="logo-whatsapp"></ion-icon>
+        </div>
+        <span class="whatsapp-float__tooltip">Chat with us!</span>
+        <span class="whatsapp-float__pulse"></span>
+    </a>
+
+    <!-- Cart Toast Notification -->
+    <div class="cart-toast" id="cartToast">
+        <div class="cart-toast__check"><ion-icon name="checkmark-outline"></ion-icon></div>
+        <div class="cart-toast__img"><img id="toastProductImg" src="" alt=""></div>
+        <div class="cart-toast__body">
+            <span class="cart-toast__label">Added to cart</span>
+            <p class="cart-toast__name" id="toastProductName"></p>
+        </div>
+        <button class="cart-toast__close" id="toastClose"><ion-icon name="close-outline"></ion-icon></button>
+        <div class="cart-toast__bar"></div>
+    </div>
+
+    <script src="JavaScript/index.js"></script>
+    <script src="JavaScript/main.js"></script>
+    <script src="JavaScript/cart.js"></script>
+</body>
+</html>
